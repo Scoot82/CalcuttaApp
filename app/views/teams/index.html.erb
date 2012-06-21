@@ -6,9 +6,15 @@
 <% @teams.each do |team| %>
 	<li>
 		<a href = <%= team_url(team.id) %>><%= team.name %></a> <%= link_to "Delete", destroy_team_url(team.id), method: "delete" %><br />
-		Winning Bidder: <%= User.find_by_id(team.bids.last.user_id).email %>
+		
+		<% if team.bids.present? %>
+			Winning Bidder: <%= User.find_by_id(team.bids.last.user_id).email %><br />
+			Current Bid: $<%= team.bids.last.bid_amount %>
+		<% else %>
+			There have been no bids on this team...yet
+		<% end %>	
 		<div>
-		Current Bid: $<%= team.bids.last.bid_amount %>
+		
 		
 		<% if user_signed_in? %>
 			<%= form_for @bid do |f| %>
