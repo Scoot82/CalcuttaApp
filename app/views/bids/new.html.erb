@@ -1,0 +1,7 @@
+<%= form_for @bid do |f| %>
+	<%= f.label :bid_amount, "Bid Amount: " %>
+	<%= f.text_field :bid_amount %>
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+	<%= f.hidden_field :team_id, :value =>  %>
+	<%= f.submit "Place Bid" %>
+<% end %>

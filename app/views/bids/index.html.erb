@@ -1,0 +1,13 @@
+Listing bids
+
+<ul>
+<% @bids.each do |bid| %>
+	<li>
+		Bid Amount: <%= bid.bid_amount %>
+		Team: <%= bid.team_id %>
+		User: <%= bid.user_id %>
+	</li>
+<% end %>
+</ul>
+
+current user: <%= current_user.id %>

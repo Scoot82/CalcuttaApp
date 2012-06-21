@@ -1,0 +1,9 @@
+<%= form_for @team do |f| %>
+	<%= f.label :name, "Name: " %>
+	<%= f.text_field :name %>
+	<div>
+	<%= f.label :price, "Price: " %>
+	<%= f.text_field :price %>
+	<div>
+	<%= f.submit "Add Team" %>
+<% end %>

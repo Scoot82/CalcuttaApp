@@ -1,0 +1,15 @@
+<h1>Displaying <%= @team.name %></h1>
+
+<%= @team.name %> has a price of $<%= @team.price %>
+
+<%= link_to "Edit", edit_team_url %>
+<%= link_to "Delete", destroy_team_url, method: "delete" %>
+
+<br />Bid History:<br />
+<% @team.bids.each do |x| %>
+<li>
+	Bid: $<%= x.bid_amount %>
+	by <%= User.find_by_id(x.user_id).email %>
+	at <%= x.created_at %>
+</li>	
+<% end %>	
